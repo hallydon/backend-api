@@ -3,7 +3,8 @@ import cors from "cors";
 // import "./src/models/index.js";
 import logger from "morgan";
 import helmet from "helmet";
-import authMiddleware from "./src/middlewares/authMiddleware";
+import authMiddleware from "./src/middlewares/authMiddleware.js";
+import routesv0 from "./src/routes/v0/index.js";
 
 const port = 3000;
 
@@ -41,6 +42,7 @@ app.get("/", authMiddleware, function (req, res) {
   });
 });
 
-app.listen(port, function () {
+app.use("/api/v0",routesv0)
+app.listen(port, function() {
   return console.log("Running on 3000");
 });

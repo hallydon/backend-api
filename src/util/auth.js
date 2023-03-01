@@ -1,17 +1,17 @@
 import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
+// import dotenv from "dotenv";
 
-dotenv.config({path: ".env"})
+// dotenv.config()
 
 export const createToken = (email) => {
-  const token = jwt.sign({email}, process.env.JWTSign, {
+  const token = jwt.sign({email}, "process.env.JWTSign", {
     expiresIn: "7d"
   })
   return token
 }
 
 export const verifyToken = (token) => {
-  jwt.verify(token, process.env.JWTSign, function(err, verified) {
+  jwt.verify(token, "process.env.JWTSign", function(err, verified) {
     if (err.name === "TokenExpiredError") {
       throw {
         type: "Expired",

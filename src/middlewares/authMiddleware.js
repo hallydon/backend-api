@@ -1,4 +1,4 @@
-import {verifyToken} from "../util/auth"; 
+import {verifyToken} from "../util/auth.js"; 
 
 async function authMiddleware(req, res, next) {
   try {
@@ -14,4 +14,4 @@ async function authMiddleware(req, res, next) {
   }
 }
 
-export default authMiddleware
+export default authMiddlewarey
